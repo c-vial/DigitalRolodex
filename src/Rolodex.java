@@ -1,16 +1,15 @@
 /*****************************************************************************************
  * Name: Horace Vial
- * Date: November 13, 2025
+ * Date: November 20, 2025
  *
- *Rolodex class that stores a list of Contacts objects.
- *This shows composition because this class has-a list of Contacts.
- */
+ * Rolodex class that stores contacts (composition).
+ *****************************************************************************************/
 
 import java.util.ArrayList;
 
 public class Rolodex {
 
-    // Composition: this class contains (has-a) list of Contacts
+    // Rolodex has-a list of contacts (composition)
     private ArrayList<Contacts> ContactsList;
 
     // Constructor
@@ -18,16 +17,16 @@ public class Rolodex {
         ContactsList = new ArrayList<>();
     }
 
-    // Add a contact to the Rolodex
+    // Add a contact
     public void addContact(Contacts c) {
         ContactsList.add(c);
     }
 
-    // Display all stored contacts
+    // Display all contacts (polymorphism)
     public void displayAllContacts() {
-        System.out.println("----- Rolodex Contacts (Composition)-----");
+        System.out.println("----- Rolodex Contacts -----");
         for (Contacts c : ContactsList) {
-            System.out.println(c.toString());
+            System.out.println(c.printContact());
             System.out.println("----------------------------");
         }
     }

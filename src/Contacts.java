@@ -1,13 +1,13 @@
 /*****************************************************************************************
  * Name: Horace Vial
- * Date: November 13, 2025
+ * Date: November 20, 2025
  * 
- *Base class that stores general contact info such as name, phone, and email.
- ********/
+ * Base class for contact info while implementing printContact()
+ *****************************************************************************************/
 
-public class Contacts {
+public class Contacts implements ContactMethods {
 
-    // Base contact information
+    // Properties
     private String Name;
     private String PhoneNumber;
     private String EmailAddress;
@@ -29,14 +29,21 @@ public class Contacts {
     public String getEmailAddress() { return EmailAddress; }
     public void setEmailAddress(String email) { EmailAddress = email; }
 
-    // Format contact information
+    // Format basic contact info
     public String getContactInformation() {
         return String.format("%s%s%n%s%s%n%s%s",
-            "Name: ", Name,
-            "Phone: ", PhoneNumber,
-            "Email: ", EmailAddress);
+                "Name: ", Name,
+                "Phone: ", PhoneNumber,
+                "Email: ", EmailAddress);
     }
-//override toString
+
+    // Base printContact() method (implements interface)
+    @Override
+    public String printContact() {
+        return getContactInformation();
+    }
+
+    // toString override
     @Override
     public String toString() {
         return getContactInformation();
