@@ -1,37 +1,48 @@
-/*****************************************************************************************
+/********************************************************************
  * Name: Horace Vial
- * Date: November 20, 2025
+ * Date: 12/01/2025
  *
- * Main application with  menu.
- *****************************************************************************************/
+ * Main application for Week 3.
+ ********************************************************************/
+
 import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("----- Horace Vial's Project Week 2 - Rolodex Application -----");
+        System.out.println("-------------------------------------------");
+        System.out.println(" Horace Vial - Week 3 Rolodex Application");
+        System.out.println("-------------------------------------------");
         System.out.println();
-        System.out.println("Welcome to the Contacts Application!");
 
-        // Example contacts
-        Contacts a = new Contacts("Jane Doe", "555-1234", "jane.doe@example.com");
-        BusinessContacts b = new BusinessContacts("Mark Smith", "555-9876",
-                "mark.smith@techcorp.com", "TechCorp", "Project Manager");
+        System.out.println("Welcome to my Rolodex Application");
+        System.out.println("Please choose an option below.");
+        System.out.println();
 
-        // Rolodex object
+        // sample contacts - Polymorphism/Abstraction
+        Contacts basic = new BasicContact("Jane Doe", "555-1234", "jane.doe@gmail.com");
+
+        BusinessContacts business = new BusinessContacts(
+                "Mark Smith",
+                "555-9876",
+                "mark.smith@techcorp.com",
+                "TechCorp",
+                "Project Manager"
+        );
+
+        // rolodex object - Composition
         Rolodex r = new Rolodex();
-        r.addContact(a);
-        r.addContact(b);
+        r.addContact(basic);
+        r.addContact(business);
 
         int choice = -1;
 
-        // Menu loop
+        // menu loop
         while (choice != 0) {
 
-            // Menu options
-            System.out.println("Please choose an option:");
             System.out.println("1. View basic contact");
             System.out.println("2. View business contact");
             System.out.println("3. View all contacts");
@@ -41,24 +52,30 @@ public class App {
             choice = input.nextInt();
             System.out.println();
 
-            // Handle choices
+            // show basic contact
             if (choice == 1) {
-                System.out.println(a.printContact());
+                System.out.println(basic.getContactType());
+                System.out.println(basic.printContact());
                 System.out.println();
 
+            // show business contact
             } else if (choice == 2) {
-                System.out.println(b.printContact());
+                System.out.println(business.getContactType());
+                System.out.println(business.printContact());
                 System.out.println();
 
+            // show all contacts - Polymorphism
             } else if (choice == 3) {
                 r.displayAllContacts();
                 System.out.println();
 
             } else if (choice == 0) {
-                System.out.println("Exiting application. Goodbye!\n");
+                System.out.println("Exiting program...");
+                System.out.println();
 
             } else {
-                System.out.println("Invalid choice. Please try again.\n");
+                System.out.println("Invalid choice.");
+                System.out.println();
             }
         }
 

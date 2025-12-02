@@ -1,31 +1,32 @@
-/*****************************************************************************************
+/********************************************************************
  * Name: Horace Vial
- * Date: November 20, 2025
+ * Date: 12/01/2025
  *
- * Rolodex class that stores contacts (composition).
- *****************************************************************************************/
+ * Class that stores contacts using composition.
+ ********************************************************************/
 
 import java.util.ArrayList;
 
 public class Rolodex {
 
-    // Rolodex has-a list of contacts (composition)
+    // list of contacts - Composition
     private ArrayList<Contacts> ContactsList;
 
-    // Constructor
+    // constructor
     public Rolodex() {
         ContactsList = new ArrayList<>();
     }
 
-    // Add a contact
+    // add contact - Composition
     public void addContact(Contacts c) {
         ContactsList.add(c);
     }
 
-    // Display all contacts (polymorphism)
+    // display all contacts - Polymorphism / Abstraction
     public void displayAllContacts() {
         System.out.println("----- Rolodex Contacts -----");
         for (Contacts c : ContactsList) {
+            System.out.println("Contact Type: " + c.getContactType());
             System.out.println(c.printContact());
             System.out.println("----------------------------");
         }

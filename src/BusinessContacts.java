@@ -1,46 +1,57 @@
-/*****************************************************************************************
+/********************************************************************
  * Name: Horace Vial
- * Date: November 20, 2025
+ * Date: 12/01/2025
  *
- * Business contact class extends Contacts while implementing printContact() (inheritance and polymorphism).
- *****************************************************************************************/
+ * Child class for business contacts.
+ * Inherits from the abstract Contacts class.
+ ********************************************************************/
 
 public class BusinessContacts extends Contacts {
 
-    // Properties
+    // properties - Business only
     private String CompanyName;
     private String JobTitle;
 
-    // Constructor
+    // constructor
     public BusinessContacts(String name, String phone, String email,
                             String company, String title) {
-        super(name, phone, email);  // Call base Contacts constructor
+        super(name, phone, email);
         CompanyName = company;
         JobTitle = title;
     }
 
-    // Getters and setters
+    // constructor - Overloaded
+    public BusinessContacts(String name, String phone, String email) {
+        this(name, phone, email, "Unknown Company", "Unknown Title");
+    }
+
+    // getters/setters
     public String getCompanyName() { return CompanyName; }
     public void setCompanyName(String company) { CompanyName = company; }
 
     public String getJobTitle() { return JobTitle; }
     public void setJobTitle(String title) { JobTitle = title; }
 
-    // Format business contact info
+    // contact type
+    @Override
+    public String getContactType() {
+        return "Business Contact";
+    }
+
+    // format full business contact
     public String getBusinessContactInformation() {
         return String.format("%s%n%s%s%n%s%s",
-                super.getContactInformation(),
+                getContactInformation(),
                 "Company: ", CompanyName,
                 "Job Title: ", JobTitle);
     }
 
-    // Override printContact() method (polymorphism)
+    // print full business info
     @Override
     public String printContact() {
         return getBusinessContactInformation();
     }
 
-    // toString override
     @Override
     public String toString() {
         return getBusinessContactInformation();

@@ -1,25 +1,31 @@
-/*****************************************************************************************
+/********************************************************************
  * Name: Horace Vial
- * Date: November 20, 2025
- * 
- * Base class for contact info while implementing printContact()
- *****************************************************************************************/
+ * Date: 12/01/2025
+ *
+ * Abstract class used as the base for all contact types.
+ * Holds shared properties and constructors.
+ ********************************************************************/
 
-public class Contacts implements ContactMethods {
+public abstract class Contacts implements ContactMethods {
 
-    // Properties
+    // properties
     private String Name;
     private String PhoneNumber;
     private String EmailAddress;
 
-    // Constructor
+    // constructor
     public Contacts(String name, String phone, String email) {
         Name = name;
         PhoneNumber = phone;
         EmailAddress = email;
     }
 
-    // Getters and setters
+    // constructor - Overloaded
+    public Contacts(String name, String phone) {
+        this(name, phone, "not@provided.com");
+    }
+
+    // getters/setters
     public String getName() { return Name; }
     public void setName(String name) { Name = name; }
 
@@ -29,7 +35,10 @@ public class Contacts implements ContactMethods {
     public String getEmailAddress() { return EmailAddress; }
     public void setEmailAddress(String email) { EmailAddress = email; }
 
-    // Format basic contact info
+    // abstract method
+    public abstract String getContactType();
+
+    // shared formatting method
     public String getContactInformation() {
         return String.format("%s%s%n%s%s%n%s%s",
                 "Name: ", Name,
@@ -37,13 +46,11 @@ public class Contacts implements ContactMethods {
                 "Email: ", EmailAddress);
     }
 
-    // Base printContact() method (implements interface)
     @Override
     public String printContact() {
         return getContactInformation();
     }
 
-    // toString override
     @Override
     public String toString() {
         return getContactInformation();
