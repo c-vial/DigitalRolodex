@@ -51,7 +51,7 @@ Corrected errors, improved readability, enhanced formatting, and ensured all pro
 - All saved data persists between program runs.  
 
 ## Link to Project
-https://github.com/horvia3887/DigitalRolodex
+https://github.com/c-vial/DigitalRolodex/
 
 ## Link to Video
 https://youtu.be/8ykr1mg8jtA
