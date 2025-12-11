@@ -1,6 +1,6 @@
 /*
  * Name: Horace Vial
- * Date: 12/05/2025
+ * Date: 12/10/2025
  * Main program that handles user menu choice and displays contacts.
  */
 
@@ -15,10 +15,10 @@ public class App {
         final String dbName = "database.db";
 
         // welcome messages
-        System.out.println("\nWelcome to Horace Vial's Week 4 Rolodex program!\n");
+        System.out.println("\nWelcome to Horace Vial's Rolodex program!\n");
         System.out.println("Use the menu numbers to add, view, update, or delete contacts.\n");
 
-        // open connection and create table if needed
+        // open connection and create table if needed     //
         Connection conn = SQLiteDatabase.connect(dbName);
         ContactsDb.createTable(conn);
 
@@ -31,7 +31,7 @@ public class App {
             System.out.println("1. Add contact");
             System.out.println("2. View all contacts");
             System.out.println("3. View by category");
-            System.out.println("4. View by letter");
+            System.out.println("4. View by first letter of last name");
             System.out.println("5. Update contact");
             System.out.println("6. Delete contact");
             System.out.println("7. Exit");

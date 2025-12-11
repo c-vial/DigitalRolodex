@@ -1,6 +1,6 @@
 /*
  * Name: Horace Vial
- * Date: 12/05/2025
+ * Date: 12/10/2025
  * Creates a connection to the SQLite database file.
  */
 

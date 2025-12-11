@@ -1,6 +1,6 @@
 /*
  * Name: Horace Vial
- * Date: 12/05/2025
+ * Date: 12/10/2025
  * This class stores information for business contacts.
  */
 
